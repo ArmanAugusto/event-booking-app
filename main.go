@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	const conferenceTickets = 100
-	var eventName = "Developer Conference"
-	var remainingTickets = 100
+	const conferenceTickets uint = 100
+	var eventName string = "Developer Conference"
+	var remainingTickets uint = 100
 
 	fmt.Printf("\n\nWelcome to our %s Booking Application\n\n", eventName)
 	fmt.Printf("We have %d available tickets remaining out of %d.\n", remainingTickets, conferenceTickets)
@@ -13,7 +13,7 @@ func main() {
 	fmt.Printf("\n\n")
 
 	var userName string
-	var userTickets int
+	var userTickets uint
 
 	userName = "dev23"
 	userTickets = 2
