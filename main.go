@@ -9,13 +9,17 @@ func main() {
 
 	fmt.Printf("\n\nWelcome to our %s Booking Application\n\n", eventName)
 	fmt.Printf("We have %d available tickets remaining out of %d.\n", remainingTickets, conferenceTickets)
-	fmt.Printf("Get your tickets here to attend.")
-	fmt.Printf("\n\n")
+	fmt.Println("Get your tickets here to attend.")
+	fmt.Printf("\n")
 
 	var userName string
 	var userTickets uint
 
-	userName = "dev23"
-	userTickets = 2
-	fmt.Printf("User %s booked %d tickets.\n\n\n", userName, userTickets)
+	fmt.Printf("Enter your username:  ")
+	fmt.Scan(&userName)
+	fmt.Printf("\nHello %s.\n\n", userName)
+	fmt.Printf("Enter amount of tickets you would like to book:  ")
+	fmt.Scan(&userTickets)
+
+	fmt.Printf("\nUser %s booked %d tickets.\n\n\n", userName, userTickets)
 }
