@@ -12,14 +12,34 @@ func main() {
 	fmt.Println("Get your tickets here to attend.")
 	fmt.Printf("\n")
 
-	var userName string
+	var bookings [100]string
+
+	var firstName string
+	var lastName string
+	var email string
 	var userTickets uint
 
-	fmt.Printf("Enter your username:  ")
-	fmt.Scan(&userName)
-	fmt.Printf("\nHello %s.\n\n", userName)
+	fmt.Println("Enter the following information:")
+	fmt.Print("\nFirst Name:  ")
+	fmt.Scan(&firstName)
+	fmt.Print("Last Name:  ")
+	fmt.Scan(&lastName)
+	fmt.Print("Email:  ")
+	fmt.Scan(&email)
+	fmt.Printf("\nHello %s.\n\n", firstName)
 	fmt.Printf("Enter amount of tickets you would like to book:  ")
 	fmt.Scan(&userTickets)
 
-	fmt.Printf("\nUser %s booked %d tickets.\n\n\n", userName, userTickets)
+	remainingTickets -= userTickets
+	bookings[0] = firstName + " " + lastName
+
+	fmt.Printf("bookings array: %s\n", bookings)
+	fmt.Printf("first element in bookings array: %s\n", bookings[0])
+	fmt.Printf("array type: %T\n", bookings)
+	fmt.Printf("array length: %d\n", len(bookings))
+
+	fmt.Printf("\n%s %s booked %d tickets. A confirmation will be sent to the email address '%s'.\n\n",
+		firstName, lastName, userTickets, email)
+
+	fmt.Printf("There are now %d tickets remaining for %s.\n\n\n", remainingTickets, eventName)
 }
