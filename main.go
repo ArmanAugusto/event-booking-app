@@ -33,11 +33,11 @@ func main() {
 		fmt.Printf("Enter amount of tickets you would like to book:  ")
 		fmt.Scan(&userTickets)
 
-		if userTickets > remainingTickets {
-			fmt.Printf("We only have %d tickets available.", remainingTickets)
-			continue
-		} else {
+		isValidName := len(firstName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidTicketAmount := userTickets > 0 && userTickets <= remainingTickets
 
+		if isValidName && isValidEmail && isValidTicketAmount {
 			remainingTickets = remainingTickets - userTickets
 			bookings = append(bookings, firstName+" "+lastName)
 
@@ -54,12 +54,22 @@ func main() {
 				var names = strings.Fields(booking)
 				firstNames = append(firstNames, names[0])
 			}
-			fmt.Printf("Bookings (First Names):  %v\n\n\n", firstNames)
+			fmt.Printf("Bookings (First Names):  %s\n\n\n", firstNames)
 
 			if remainingTickets == 0 {
 				// end program
 				fmt.Println("Conference Tickets are sold out.")
 				break
+			}
+		} else {
+			if !isValidName {
+				fmt.Println("First name and last name needs to have more than one letter.")
+			}
+			if !isValidEmail {
+				fmt.Println("Invalid email entry.")
+			}
+			if !isValidTicketAmount {
+				fmt.Println("Invalid ticket amount entered.")
 			}
 		}
 	}
